@@ -53,3 +53,48 @@ const otherFoods = [
         description: "The Flatburger exclusive Onion Rings! Get them while supplies last!"
     }
 ]
+
+// .getElementById()
+const restaurantMenu = document.getElementById('restaurant-menu')
+
+burgers.forEach(burger => {
+    // .createElement()
+    const foodImage = document.createElement('img')
+    foodImage.src = burger.image
+    foodImage.className = "burger"
+    // .appendChild()
+    restaurantMenu.appendChild(foodImage)
+})
+
+otherFoods.forEach(food => {
+    const foodImage = document.createElement('img')
+    foodImage.src = food.image
+    restaurantMenu.appendChild(foodImage)
+})
+
+// .querySelector()
+const foodDetailImage = document.querySelector('.detail-image')
+foodDetailImage.src = burgers[0].image
+
+const foodName = document.querySelector('.name')
+// .textContent
+foodName.textContent = burgers[0].name
+
+const descriptionDisplay = document.getElementById('description-display')
+descriptionDisplay.textContent = burgers[0].description
+
+// .querySelectorAll()
+const foodImages = document.querySelectorAll('#restaurant-menu img')
+foodImages.forEach(foodImage => {
+    foodImage.style = "border-style: solid; border-color: red; border-width: 3px"
+})
+
+// .getElementsByClassName()
+const burgerImages = document.getElementsByClassName('burger')
+for(let burgerImage of burgerImages){
+    burgerImage.style.borderColor = "blue"
+}
+
+// .remove()
+const burgerToRemove = document.querySelector('#restaurant-menu img')
+burgerToRemove.remove()
